@@ -29,60 +29,93 @@
       height: auto;
       display: block;
       border-radius: 12px;
+      margin-bottom: 18px;
     }
 
     .text {
-      margin-top: 16px;
-      font-size: 16px;
+      font-size: 17px;
       color: #333;
-      line-height: 1.5;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .button-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: center;
     }
 
     .btn {
       display: inline-block;
-      margin-top: 16px;
-      padding: 12px 18px;
-      background: #2f6b3b;
-      color: #fff;
+      width: 100%;
+      max-width: 320px;
+      padding: 14px 18px;
+      border-radius: 10px;
       text-decoration: none;
-      border-radius: 8px;
       font-size: 16px;
       font-weight: bold;
+      color: #fff;
+      transition: 0.2s;
     }
 
-    .btn:hover {
+    .btn-survey {
+      background: #2f6b3b;
+    }
+
+    .btn-survey:hover {
       background: #24552f;
+    }
+
+    .btn-kakao {
+      background: #FEE500;
+      color: #3b1e1e;
+    }
+
+    .btn-kakao:hover {
+      background: #e6cf00;
+    }
+
+    .btn-instagram {
+      background: #d62976;
+    }
+
+    .btn-instagram:hover {
+      background: #b51f63;
+    }
+
+    .sub-text {
+      margin-top: 18px;
+      font-size: 14px;
+      color: #666;
     }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <img src="notice.png" alt="국립산림치유원 소식 안내">
+    <img src="notice.png" alt="국립산림치유원 안내 이미지">
 
-    <div class="text" id="msg">
-      10초 후 설문조사 페이지로 자동 이동합니다.
+    <div class="text">
+      아래 버튼을 눌러 원하는 페이지로 이동해 주세요.
     </div>
 
-    <a class="btn" href="https://naver.me/56XrsbT4">
-      👉 지금 바로 참여하기
-    </a>
+    <div class="button-group">
+      <a class="btn btn-survey" href="https://naver.me/56XrsbT4" target="_blank">
+        설문조사 참여하기
+      </a>
+
+      <a class="btn btn-kakao" href="http://pf.kakao.com/_JdAxnT" target="_blank">
+        카카오톡 채널 추가
+      </a>
+
+      <a class="btn btn-instagram" href="https://www.instagram.com/healing_fowi/" target="_blank">
+        인스타그램 바로가기
+      </a>
+    </div>
+
+    <div class="sub-text">
+      설문조사 참여 및 소식 확인을 원하시면 버튼을 선택해주세요.
+    </div>
   </div>
-
-  <script>
-    const surveyUrl = "https://naver.me/56XrsbT4";
-
-    let timeLeft = 10;
-    const msg = document.getElementById("msg");
-
-    const timer = setInterval(() => {
-      timeLeft--;
-      msg.innerText = timeLeft + "초 후 설문조사 페이지로 자동 이동합니다.";
-
-      if (timeLeft <= 0) {
-        clearInterval(timer);
-        window.location.href = surveyUrl;
-      }
-    }, 1000);
-  </script>
 </body>
 </html>
